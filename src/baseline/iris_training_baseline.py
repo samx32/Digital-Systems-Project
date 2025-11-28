@@ -8,7 +8,8 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-from iris_mlp import IrisMLP
+from .iris_mlp import IrisMLP
+from src.utils.energy_measurements import EnergyTracker
 
 
 def set_seed(seed: int = 42) -> None:
@@ -132,27 +133,31 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
-    # Training loop
+    # Training loop with energy tracking
     num_epochs = 50
 
-    for epoch in range(1, num_epochs + 1):
-        train_loss, train_acc = train_one_epoch(
-            model, train_loader, criterion, optimizer, device
-        )
-        test_loss, test_acc = evaluate(
-            model, test_loader, criterion, device
-        )
-
-        if epoch % 5 == 0 or epoch == 1:
-            print(
-                f'Epoch [{epoch}/{num_epochs}] '
-                f'Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f} | '
-                f'Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}'
+    with EnergyTracker(experiment_name="iris_baseline") as tracker:
+        for epoch in range(1, num_epochs + 1):
+            train_loss, train_acc = train_one_epoch(
+                model, train_loader, criterion, optimizer, device
             )
+            test_loss, test_acc = evaluate(
+                model, test_loader, criterion, device
+            )
+
+            if epoch % 5 == 0 or epoch == 1:
+                print(
+                    f'Epoch [{epoch}/{num_epochs}] '
+                    f'Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f} | '
+                    f'Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}'
+                )
 
     # Final test accuracy
     final_test_loss, final_test_acc = evaluate(model, test_loader, criterion, device)
     print('\nFinal Test Accuracy on Iris: {:.2f}%'.format(final_test_acc * 100))
+    
+    print("\nEnergy tracking complete!")
+    print(f"Metrics: {tracker.metrics}")
 
 
 if __name__ == '__main__':
