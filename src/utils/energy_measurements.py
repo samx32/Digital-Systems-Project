@@ -8,7 +8,7 @@ from typing import Optional, Dict, Any, Callable
 from datetime import datetime
 
 import psutil
-import pynvml
+from py3nvml import py3nvml
 from pyJoules.energy_meter import EnergyContext
 from codecarbon import EmissionsTracker
 
@@ -30,15 +30,25 @@ class EnergyTracker:
         self.gpu_available = False
 
         try:
-            pynvml.nvmlInit()
+            py3nvml.nvmlInit()
             self.gpu_available = True
-            self.gpu_handle = pynvml.nvmlDeviceGetHandleByIndex(0)
-        except:
-            print("NVIDIA GPU not available for energy tracking.")
+            self.gpu_handle = py3nvml.nvmlDeviceGetHandleByIndex(0)
+            print("NVIDIA GPU detected for energy tracking!")
+        except Exception as e:
+            print(f"NVIDIA GPU not available for energy tracking. Error: {e}")
 
 
         self.metrics = {}
 
+    def __enter__(self):
+        """Context manager entry"""
+        self.start()
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Context manager exit"""
+        self.stop()
+        return False
 
     def start(self):
         """Start energy tracking"""
@@ -59,9 +69,9 @@ class EnergyTracker:
 
         # Record initial GPU state
         if self.gpu_available:
-            self.initial_gpu_power = pynvml.nvmlDeviceGetPowerUsage(self.gpu_handle) / 1000.0  # Convert mW to W
-            self.initial_gpu_temp = pynvml.nvmlDeviceGetTemperature(self.gpu_handle, pynvml.NVML_TEMPERATURE_GPU)
-            self.initial_gpu_memory = pynvml.nvmlDeviceGetMemoryInfo(self.gpu_handle).used / (1024 ** 2)  # Convert bytes to MB
+            self.initial_gpu_power = py3nvml.nvmlDeviceGetPowerUsage(self.gpu_handle) / 1000.0  # Convert mW to W
+            self.initial_gpu_temp = py3nvml.nvmlDeviceGetTemperature(self.gpu_handle, py3nvml.NVML_TEMPERATURE_GPU)
+            self.initial_gpu_memory = py3nvml.nvmlDeviceGetMemoryInfo(self.gpu_handle).used / (1024 ** 2)  # Convert bytes to MB
 
     def stop(self):
         """Stop energy tracking and save results"""
@@ -90,9 +100,9 @@ class EnergyTracker:
 
         # Get final GPU metrics
         if self.gpu_available:
-            final_gpu_power = pynvml.nvmlDeviceGetPowerUsage(self.gpu_handle) / 1000.0
-            final_gpu_temp = pynvml.nvmlDeviceGetTemperature(self.gpu_handle, pynvml.NVML_TEMPERATURE_GPU)
-            final_gpu_memory = pynvml.nvmlDeviceGetMemoryInfo(self.gpu_handle).used / (1024 ** 2)
+            final_gpu_power = py3nvml.nvmlDeviceGetPowerUsage(self.gpu_handle) / 1000.0
+            final_gpu_temp = py3nvml.nvmlDeviceGetTemperature(self.gpu_handle, py3nvml.NVML_TEMPERATURE_GPU)
+            final_gpu_memory = py3nvml.nvmlDeviceGetMemoryInfo(self.gpu_handle).used / (1024 ** 2)
 
             self.metrics.update({
                 "initial_gpu_power_w": self.initial_gpu_power,
