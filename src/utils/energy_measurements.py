@@ -42,10 +42,26 @@ class EnergyTracker:
 
     def start(self):
         """Start energy tracking"""
-        # TODO: Start CodeCarbon tracker
-        # TODO: Record start time
-        # TODO: Record initial CPU/GPU state
-        pass
+        # Record start time
+        self.start_time = time.time()
+
+        # Start CodeCarbon tracker
+        self.codecarbon_tracker = EmissionsTracker(
+            output_dir=str(self.output_dir),
+            project_name=self.experiment_name,
+            log_level="error"
+        )
+        self.codecarbon_tracker.start()
+
+        # Record initial CPU state
+        self.initial_cpu_percent = psutil.cpu_percent()
+        self.initial_memory = psutil.virtual_memory().used / (1024 ** 2)  # Convert bytes to MB
+
+        # Record initial GPU state
+        if self.gpu_available:
+            self.initial_gpu_power = pynvml.nvmlDeviceGetPowerUsage(self.gpu_handle) / 1000.0  # Convert mW to W
+            self.initial_gpu_temp = pynvml.nvmlDeviceGetTemperature(self.gpu_handle, pynvml.NVML_TEMPERATURE_GPU)
+            self.initial_gpu_memory = pynvml.nvmlDeviceGetMemoryInfo(self.gpu_handle).used / (1024 ** 2)  # Convert bytes to MB
 
     def stop(self):
         """Stop energy tracking and save results"""
