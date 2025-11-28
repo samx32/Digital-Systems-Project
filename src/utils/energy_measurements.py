@@ -65,11 +65,60 @@ class EnergyTracker:
 
     def stop(self):
         """Stop energy tracking and save results"""
-        # TODO: Stop CodeCarbon tracker
-        # TODO: Calculate total time
-        # TODO: Get final GPU metrics (if available)
-        # TODO: Save to CSV
-        pass
+        # Calculate total time      
+        self.end_time = time.time()
+        total_time = self.end_time - self.start_time
+
+        # Stop CodeCarbon tracker
+        emmissions = self.codecarbon_tracker.stop()
+
+        # Record final CPU state
+        final_cpu_percent = psutil.cpu_percent()
+        final_memory = psutil.virtual_memory().used / (1024 ** 2)
+
+        # Metrics dictionary
+        self.metrics = {
+            "experiment_name": self.experiment_name,
+            "timestamp": self.timestamp,
+            "duration_seconds": total_time,
+            "emissions_kg": emmissions,
+            "initial_cpu_percent": self.initial_cpu_percent,
+            "final_cpu_percent": final_cpu_percent,
+            "initial_memory_mb": self.initial_memory,
+            "final_memory_mb": final_memory,
+        }
+
+        # Get final GPU metrics
+        if self.gpu_available:
+            final_gpu_power = pynvml.nvmlDeviceGetPowerUsage(self.gpu_handle) / 1000.0
+            final_gpu_temp = pynvml.nvmlDeviceGetTemperature(self.gpu_handle, pynvml.NVML_TEMPERATURE_GPU)
+            final_gpu_memory = pynvml.nvmlDeviceGetMemoryInfo(self.gpu_handle).used / (1024 ** 2)
+
+            self.metrics.update({
+                "initial_gpu_power_w": self.initial_gpu_power,
+                "final_gpu_power_w": final_gpu_power,
+                "initial_gpu_temp_c": self.initial_gpu_temp,
+                "final_gpu_temp_c": final_gpu_temp,
+                "initial_gpu_memory_mb": self.initial_gpu_memory,
+                "final_gpu_memory_mb": final_gpu_memory,
+            })
+
+        # Save to CSV
+        self._save_to_csv()
+        
+        return self.metrics
+    
+    def _save_to_csv(self):
+        """Save metrics to a CSV file"""
+        csv_file = self.output_dir / f"{self.experiment_name}_energy_metrics_{self.timestamp}.csv"
+        with open(csv_file, mode='w', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=self.metrics.keys())
+            writer.writeheader()
+            writer.writerow(self.metrics)
+
+        print(f"Energy metrics saved to {csv_file}")
+
+        
     
 
 
