@@ -1,0 +1,2 @@
+experiment_name,timestamp,duration_seconds,emissions_kg,initial_cpu_percent,final_cpu_percent,initial_memory_mb,final_memory_mb,initial_gpu_power_w,final_gpu_power_w,initial_gpu_temp_c,final_gpu_temp_c,initial_gpu_memory_mb,final_gpu_memory_mb
+iris_baseline,20251128_181342,6.221258640289307,2.7929080144906407e-05,11.1,17.7,12852.81640625,13052.73046875,31.111,21.522,53,52,1791.40234375,1829.08984375
