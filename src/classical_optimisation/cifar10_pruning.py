@@ -12,18 +12,55 @@ from src.utils.energy_measurements import EnergyTracker
 
 def load_cifar10_test(batch_size=64):
     """Load in the test set of CIFAR-10"""
-    pass
+    test_transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2470, 0.2435, 0.2616))
+    ])
+
+    test_dataset = datasets.CIFAR10(
+        root = "./data",
+        train = False, 
+        download = True, 
+        transform = test_transform
+    )
+
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    return test_loader
 
 
 
 def evaluate_model(model, dataloader, criterion, device):
     """Evaluate the model on the test datset"""
-    pass
+    model.eval()
+    total_loss = 0.0
+    correct = 0
+    total = 0
 
+    with torch.no_grad():
+        for x_batch, y_batch in dataloader:
+            x_batch, y_batch = x_batch.to(device), y_batch.to(device)
+
+            outputs = model(x_batch)
+            loss = criterion(outputs, y_batch)
+            total_loss += loss.item() 
+
+            _, predicted = torch.max(outputs.data, 1)
+            total += y_batch.size(0)
+            correct += (predicted == y_batch).sum().item()
+
+    accuracy = correct / total
+    avg_loss = total_loss / len(dataloader)
+    return avg_loss, accuracy
 
 def count_parameters(model):
     """Count the number of trainable parameters in the model"""
-    pass
+    total = 0 
+    nonzero = 0 
+    for param in model.parameters():
+        total += param.numel()
+        nonzero += torch.count_nonzero(param).item()
+    return total, nonzero
+
 
 def prune_model(model, amount: float = 0.3):
     """Apply unstructure pruning to all convolutional and linear layers in the model"""
