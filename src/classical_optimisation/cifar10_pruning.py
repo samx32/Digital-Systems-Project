@@ -64,13 +64,18 @@ def count_parameters(model):
 
 def prune_model(model, amount: float = 0.3):
     """Apply unstructure pruning to all convolutional and linear layers in the model"""
-    pass
+    for name, module in model.named_modules():
+        if isinstance(module, (nn.Conv2d, nn.Linear)):
+            prune.l1_unstructured(module, name='weight', amount=amount)
+            prune.remove(module, 'weight')
+
+    return model        
 
 
 
 def main():
     """Main function to load model, prune it, evaluate and measure energy consumption"""
-    pass
+    # Device config
 
 
 
