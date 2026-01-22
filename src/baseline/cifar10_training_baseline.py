@@ -1,5 +1,6 @@
 # cifar10_training_baseline.py
 
+import os
 import numpy as np
 import torch
 import torch.nn as nn
@@ -152,6 +153,13 @@ def main():
     print("\nEnergy tracking complete!")
     print(f"Metrics: {tracker.metrics}")
 
+    # Save model
+    os.makedirs('data/models', exist_ok=True)
+    torch.save(model.state_dict(), 'data/models/cifar10_cnn.pth')
+    print("Model saved to data/models/cifar10_cnn.pth")
+
+    print("\nEnergy measurement for baseline training complete.")
+    print(f"Energy metrics: {tracker.metrics}")
 
 if __name__ == '__main__':
     main()

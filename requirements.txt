@@ -1,0 +1,22 @@
+# Core numerical + data handling
+numpy
+pandas
+
+# Machine learning framework
+torch
+torchvision
+
+# Energy measurement tools
+codecarbon
+pyJoules
+nvidia-ml-py
+py3nvml
+psutil
+
+# Visualisation
+matplotlib
+seaborn
+
+# Utility libraries
+tqdm
+scikit-learn
