@@ -1,0 +1,12 @@
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# CIFAR-10 dataset
+data/cifar10/
+data/cifar-10-batches-py/
+cifar-10-python.tar.gz
+
+# temp
+---PLANNING STUFF---/
