@@ -1,2 +1,0 @@
-experiment_name,timestamp,duration_seconds,emissions_kg,initial_cpu_percent,final_cpu_percent,initial_memory_mb,final_memory_mb,initial_gpu_power_w,final_gpu_power_w,initial_gpu_temp_c,final_gpu_temp_c,initial_gpu_memory_mb,final_gpu_memory_mb
-cifar10_pruned_80_finetuned,20260114_172552,4.427771091461182,5.762652261191915e-05,12.8,12.8,11887.765625,11939.6015625,22.559,26.494,53,53,1531.30859375,1531.30859375

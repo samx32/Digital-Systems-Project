@@ -1,2 +1,0 @@
-experiment_name,timestamp,duration_seconds,emissions_kg,initial_cpu_percent,final_cpu_percent,initial_memory_mb,final_memory_mb,initial_gpu_power_w,final_gpu_power_w,initial_gpu_temp_c,final_gpu_temp_c,initial_gpu_memory_mb,final_gpu_memory_mb
-cifar10_baseline,20251128_182956,530.8812062740326,0.012839488256699795,13.2,20.3,13051.859375,11724.5859375,31.082,32.6,53,62,1829.83984375,1990.15234375
