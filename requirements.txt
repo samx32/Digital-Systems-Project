@@ -7,16 +7,13 @@ torch
 torchvision
 
 # Energy measurement tools
-codecarbon
-pyJoules
-nvidia-ml-py
 py3nvml
 psutil
 
 # Visualisation
 matplotlib
+pillow
 seaborn
 
 # Utility libraries
-tqdm
 scikit-learn
