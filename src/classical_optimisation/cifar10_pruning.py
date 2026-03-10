@@ -1,5 +1,7 @@
 # cifar10_pruning.py
 
+import os
+
 import numpy as np
 import torch
 import torch.nn as nn
@@ -149,6 +151,7 @@ def main():
 
     with EnergyTracker(experiment_name="cifar10_baseline") as tracker:
         baseline_loss, baseline_acc = evaluate_model(model, test_loader, criterion, device)
+        tracker.set_accuracy(baseline_acc)
 
     print(f"Baseline accuracy: {baseline_acc * 100:.2f}%")
     print(f"Baseline energy consumption: {tracker.metrics}")
@@ -182,11 +185,19 @@ def main():
         # Evaluate AFTER fine-tuning with energy tracking
         with EnergyTracker(experiment_name=f"cifar10_pruned_{int(amount * 100)}_finetuned") as tracker:
             pruned_loss, pruned_acc = evaluate_model(model, test_loader, criterion, device)
+            tracker.set_accuracy(pruned_acc)
 
         print(f"Accuracy after fine-tuning: {pruned_acc * 100:.2f}%")
         print(f"Accuracy drop from baseline: {(baseline_acc - pruned_acc) * 100:.2f}%")
         print(f"Accuracy recovered by fine-tuning: {(pruned_acc - pre_ft_acc) * 100:.2f}%")
         print(f"Energy metrics: {tracker.metrics}")
+
+        # Save pruned + fine-tuned model
+        save_dir = './data/models'
+        os.makedirs(save_dir, exist_ok=True)
+        save_path = os.path.join(save_dir, f'cifar10_pruned_{int(amount * 100)}.pth')
+        torch.save(model.state_dict(), save_path)
+        print(f"Saved pruned model to {save_path}")
 
 
 
