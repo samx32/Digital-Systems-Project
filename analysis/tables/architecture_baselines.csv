@@ -1,0 +1,4 @@
+Architecture,Accuracy (%),Throughput (img/s),Energy (J),Size (MB),Latency (ms),CO₂ (g)
+Custom CNN,84.15,79973.0,652.459,5.14,1.582,0.0375
+ResNet-18,94.12,37782.8,2452.9949,42.7,3.348,0.141
+VGG-16,86.74,61004.7,1278.7778,128.33,2.073,0.0735

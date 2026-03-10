@@ -1,0 +1,7 @@
+Technique,Architecture,Acc (%),Acc Δ,Energy (J),Energy Δ,Throughput
+QIGA,Custom CNN,86.51,+2.36,652.5,+0.0%,82702
+QIGA,ResNet-18,93.97,-0.15,2468.2,+0.6%,37375
+QIGA,VGG-16,87.04,+0.30,1233.7,-3.5%,60912
+QISA,Custom CNN,86.35,+2.20,635.5,-2.6%,82064
+QISA,ResNet-18,94.16,+0.04,2660.3,+8.4%,37852
+QISA,VGG-16,86.61,-0.13,1243.5,-2.8%,61736

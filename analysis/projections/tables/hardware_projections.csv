@@ -1,0 +1,119 @@
+model,hardware,tier,throughput_imgs_s,total_energy_j,accuracy_pct,is_projected,quantum_speedup,note
+Baseline (FP32),RTX 3070 Laptop,1,79973.0,652.459,84.15,False,1.0,Real measurement on consumer hardware
+Baseline (FP32),NVIDIA A100 80GB,2,778916.5,4.37,84.15,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Baseline (FP32),NVIDIA T4 (Cloud),2,240192.8,2.48,84.15,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 20%,RTX 3070 Laptop,1,83398.9,631.8095,87.03,False,1.0,Real measurement on consumer hardware
+Pruned 20%,NVIDIA A100 80GB,2,812283.9,4.19,87.03,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 20%,NVIDIA T4 (Cloud),2,250482.2,2.38,87.03,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 40%,RTX 3070 Laptop,1,82919.8,653.9246,86.89,False,1.0,Real measurement on consumer hardware
+Pruned 40%,NVIDIA A100 80GB,2,807617.5,4.21,86.89,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 40%,NVIDIA T4 (Cloud),2,249043.3,2.39,86.89,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 60%,RTX 3070 Laptop,1,82890.4,629.6221,86.55,False,1.0,Real measurement on consumer hardware
+Pruned 60%,NVIDIA A100 80GB,2,807331.2,4.21,86.55,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 60%,NVIDIA T4 (Cloud),2,248955.0,2.39,86.55,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 80%,RTX 3070 Laptop,1,82300.9,641.3683,84.86,False,1.0,Real measurement on consumer hardware
+Pruned 80%,NVIDIA A100 80GB,2,801589.6,4.24,84.86,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 80%,NVIDIA T4 (Cloud),2,247184.5,2.41,84.86,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Struct Pruned 20%,RTX 3070 Laptop,1,74775.0,717.7481,86.11,False,1.0,Real measurement on consumer hardware
+Struct Pruned 20%,NVIDIA A100 80GB,2,728289.3,4.67,86.11,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Struct Pruned 20%,NVIDIA T4 (Cloud),2,224581.0,2.65,86.11,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Struct Pruned 40%,RTX 3070 Laptop,1,77886.3,640.6191,83.72,False,1.0,Real measurement on consumer hardware
+Struct Pruned 40%,NVIDIA A100 80GB,2,758592.6,4.48,83.72,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Struct Pruned 40%,NVIDIA T4 (Cloud),2,233925.5,2.54,83.72,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Struct Pruned 60%,RTX 3070 Laptop,1,82929.0,558.2913,78.3,False,1.0,Real measurement on consumer hardware
+Struct Pruned 60%,NVIDIA A100 80GB,2,807707.2,4.21,78.3,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Struct Pruned 60%,NVIDIA T4 (Cloud),2,249070.9,2.39,78.3,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Dynamic Quantized INT8,Ryzen 7 6800H (CPU-only),1,2911.9,2373.2997,84.13,False,1.0,Real measurement on consumer hardware
+Dynamic Quantized INT8,NVIDIA A100 80GB,2,443143.1,7.67,84.13,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Dynamic Quantized INT8,NVIDIA T4 (Cloud),2,136651.1,4.35,84.13,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Dynamic Quantized INT8,AMD EPYC 7763 (Server CPU),2,12799.7,153.13,84.13,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+Static Quantized INT8,Ryzen 7 6800H (CPU-only),1,9698.4,1128.7985,84.52,False,1.0,Real measurement on consumer hardware
+Static Quantized INT8,NVIDIA A100 80GB,2,1475936.3,2.3,84.52,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Static Quantized INT8,NVIDIA T4 (Cloud),2,455131.3,1.31,84.52,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Static Quantized INT8,AMD EPYC 7763 (Server CPU),2,42630.8,45.98,84.52,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+Pruned 20% + Dyn Quant,Ryzen 7 6800H (CPU-only),1,2938.2,2205.5896,86.94,False,1.0,Real measurement on consumer hardware
+Pruned 20% + Dyn Quant,NVIDIA A100 80GB,2,447145.5,7.6,86.94,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 20% + Dyn Quant,NVIDIA T4 (Cloud),2,137885.3,4.32,86.94,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 20% + Dyn Quant,AMD EPYC 7763 (Server CPU),2,12915.3,151.76,86.94,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+Pruned 40% + Dyn Quant,Ryzen 7 6800H (CPU-only),1,2971.3,2212.0446,86.82,False,1.0,Real measurement on consumer hardware
+Pruned 40% + Dyn Quant,NVIDIA A100 80GB,2,452182.8,7.52,86.82,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 40% + Dyn Quant,NVIDIA T4 (Cloud),2,139438.6,4.27,86.82,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 40% + Dyn Quant,AMD EPYC 7763 (Server CPU),2,13060.8,150.07,86.82,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+Pruned 60% + Dyn Quant,Ryzen 7 6800H (CPU-only),1,2958.3,2229.0677,86.53,False,1.0,Real measurement on consumer hardware
+Pruned 60% + Dyn Quant,NVIDIA A100 80GB,2,450204.4,7.55,86.53,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 60% + Dyn Quant,NVIDIA T4 (Cloud),2,138828.6,4.29,86.53,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 60% + Dyn Quant,AMD EPYC 7763 (Server CPU),2,13003.6,150.73,86.53,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+Pruned 20% + Stat Quant,Ryzen 7 6800H (CPU-only),1,9482.4,1191.6231,86.89,False,1.0,Real measurement on consumer hardware
+Pruned 20% + Stat Quant,NVIDIA A100 80GB,2,1443064.7,2.36,86.89,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 20% + Stat Quant,NVIDIA T4 (Cloud),2,444994.7,1.34,86.89,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 20% + Stat Quant,AMD EPYC 7763 (Server CPU),2,41681.3,47.02,86.89,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+Pruned 40% + Stat Quant,Ryzen 7 6800H (CPU-only),1,9807.5,1156.6978,87.12,False,1.0,Real measurement on consumer hardware
+Pruned 40% + Stat Quant,NVIDIA A100 80GB,2,1492539.5,2.28,87.12,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 40% + Stat Quant,NVIDIA T4 (Cloud),2,460251.2,1.29,87.12,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 40% + Stat Quant,AMD EPYC 7763 (Server CPU),2,43110.3,45.46,87.12,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+Pruned 60% + Stat Quant,Ryzen 7 6800H (CPU-only),1,9642.2,1179.5057,86.57,False,1.0,Real measurement on consumer hardware
+Pruned 60% + Stat Quant,NVIDIA A100 80GB,2,1467383.6,2.32,86.57,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+Pruned 60% + Stat Quant,NVIDIA T4 (Cloud),2,452493.9,1.31,86.57,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+Pruned 60% + Stat Quant,AMD EPYC 7763 (Server CPU),2,42383.7,46.24,86.57,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+QIGA Optimized,RTX 3070 Laptop,1,82702.5,652.4791,86.51,False,1.0,Real measurement on consumer hardware
+QIGA Optimized,NVIDIA A100 80GB,2,805501.1,4.22,86.51,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+QIGA Optimized,NVIDIA T4 (Cloud),2,248390.6,2.4,86.51,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+QIGA Optimized,IBM Eagle (127 qubits),3,82702.5,63169.19,86.51,True,8,Speedup from quantum superposition (population-parallel). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+QIGA Optimized,Google Sycamore (53 qubits),3,82702.5,63169.19,86.51,True,8,Speedup from quantum superposition (population-parallel). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+QISA Optimized,RTX 3070 Laptop,1,82063.7,635.5129,86.35,False,1.0,Real measurement on consumer hardware
+QISA Optimized,NVIDIA A100 80GB,2,799279.4,4.25,86.35,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+QISA Optimized,NVIDIA T4 (Cloud),2,246472.0,2.41,86.35,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+QISA Optimized,IBM Eagle (127 qubits),3,82063.7,130929.93,86.35,True,4.0,Speedup from quantum tunnelling (barrier-free). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+QISA Optimized,Google Sycamore (53 qubits),3,82063.7,130929.93,86.35,True,4.0,Speedup from quantum tunnelling (barrier-free). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+RN18 Baseline,RTX 3070 Laptop,1,37782.8,2452.9949,94.12,False,1.0,Real measurement on consumer hardware
+RN18 Baseline,NVIDIA A100 80GB,2,367994.8,9.24,94.12,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+RN18 Baseline,NVIDIA T4 (Cloud),2,113477.7,5.24,94.12,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+RN18 Pruned 20%,RTX 3070 Laptop,1,37694.0,2556.8185,94.15,False,1.0,Real measurement on consumer hardware
+RN18 Pruned 20%,NVIDIA A100 80GB,2,367129.9,9.26,94.15,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+RN18 Pruned 20%,NVIDIA T4 (Cloud),2,113211.0,5.26,94.15,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+RN18 Pruned 40%,RTX 3070 Laptop,1,38406.1,2605.6931,94.28,False,1.0,Real measurement on consumer hardware
+RN18 Pruned 40%,NVIDIA A100 80GB,2,374065.5,9.09,94.28,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+RN18 Pruned 40%,NVIDIA T4 (Cloud),2,115349.8,5.16,94.28,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+RN18 Pruned 60%,RTX 3070 Laptop,1,37965.7,2565.2513,94.1,False,1.0,Real measurement on consumer hardware
+RN18 Pruned 60%,NVIDIA A100 80GB,2,369776.2,9.19,94.1,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+RN18 Pruned 60%,NVIDIA T4 (Cloud),2,114027.1,5.22,94.1,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+RN18 Dyn Quant,Ryzen 7 6800H (CPU-only),1,319.1,14970.7047,94.1,False,1.0,Real measurement on consumer hardware
+RN18 Dyn Quant,NVIDIA A100 80GB,2,48561.8,70.01,94.1,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+RN18 Dyn Quant,NVIDIA T4 (Cloud),2,14974.9,39.73,94.1,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+RN18 Dyn Quant,AMD EPYC 7763 (Server CPU),2,1402.7,1397.31,94.1,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+RN18 QIGA,RTX 3070 Laptop,1,37374.6,2468.1614,93.97,False,1.0,Real measurement on consumer hardware
+RN18 QIGA,NVIDIA A100 80GB,2,364019.0,9.34,93.97,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+RN18 QIGA,NVIDIA T4 (Cloud),2,112251.8,5.3,93.97,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+RN18 QIGA,IBM Eagle (127 qubits),3,37374.6,83261.02,93.97,True,8,Speedup from quantum superposition (population-parallel). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+RN18 QIGA,Google Sycamore (53 qubits),3,37374.6,83261.02,93.97,True,8,Speedup from quantum superposition (population-parallel). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+RN18 QISA,RTX 3070 Laptop,1,37852.4,2660.2509,94.16,False,1.0,Real measurement on consumer hardware
+RN18 QISA,NVIDIA A100 80GB,2,368672.7,9.22,94.16,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+RN18 QISA,NVIDIA T4 (Cloud),2,113686.8,5.23,94.16,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+RN18 QISA,IBM Eagle (127 qubits),3,37852.4,166698.96,94.16,True,4.0,Speedup from quantum tunnelling (barrier-free). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+RN18 QISA,Google Sycamore (53 qubits),3,37852.4,166698.96,94.16,True,4.0,Speedup from quantum tunnelling (barrier-free). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+VGG16 Baseline,RTX 3070 Laptop,1,61004.7,1278.7778,86.74,False,1.0,Real measurement on consumer hardware
+VGG16 Baseline,NVIDIA A100 80GB,2,594170.1,5.72,86.74,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+VGG16 Baseline,NVIDIA T4 (Cloud),2,183222.9,3.25,86.74,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+VGG16 Pruned 20%,RTX 3070 Laptop,1,61540.2,1254.6489,88.02,False,1.0,Real measurement on consumer hardware
+VGG16 Pruned 20%,NVIDIA A100 80GB,2,599385.7,5.67,88.02,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+VGG16 Pruned 20%,NVIDIA T4 (Cloud),2,184831.3,3.22,88.02,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+VGG16 Pruned 40%,RTX 3070 Laptop,1,62130.5,1208.5037,88.14,False,1.0,Real measurement on consumer hardware
+VGG16 Pruned 40%,NVIDIA A100 80GB,2,605135.1,5.62,88.14,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+VGG16 Pruned 40%,NVIDIA T4 (Cloud),2,186604.2,3.19,88.14,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+VGG16 Pruned 60%,RTX 3070 Laptop,1,61830.5,1255.6602,88.13,False,1.0,Real measurement on consumer hardware
+VGG16 Pruned 60%,NVIDIA A100 80GB,2,602213.2,5.65,88.13,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+VGG16 Pruned 60%,NVIDIA T4 (Cloud),2,185703.2,3.2,88.13,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+VGG16 Dyn Quant,Ryzen 7 6800H (CPU-only),1,585.1,8374.6941,86.73,False,1.0,Real measurement on consumer hardware
+VGG16 Dyn Quant,NVIDIA A100 80GB,2,89042.6,38.18,86.73,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+VGG16 Dyn Quant,NVIDIA T4 (Cloud),2,27457.9,21.67,86.73,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+VGG16 Dyn Quant,AMD EPYC 7763 (Server CPU),2,2571.9,762.08,86.73,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: AMD EPYC 7763 specs + Cinebench R23 multi-thread scaling
+VGG16 QIGA,RTX 3070 Laptop,1,60912.3,1233.7176,87.04,False,1.0,Real measurement on consumer hardware
+VGG16 QIGA,NVIDIA A100 80GB,2,593270.2,5.73,87.04,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+VGG16 QIGA,NVIDIA T4 (Cloud),2,182945.4,3.25,87.04,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+VGG16 QIGA,IBM Eagle (127 qubits),3,60912.3,70187.16,87.04,True,8,Speedup from quantum superposition (population-parallel). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+VGG16 QIGA,Google Sycamore (53 qubits),3,60912.3,70187.16,87.04,True,8,Speedup from quantum superposition (population-parallel). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+VGG16 QISA,RTX 3070 Laptop,1,61736.1,1243.4762,86.61,False,1.0,Real measurement on consumer hardware
+VGG16 QISA,NVIDIA A100 80GB,2,601293.8,5.65,86.61,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA A100 80GB SXM4 datasheet (2023)
+VGG16 QISA,NVIDIA T4 (Cloud),2,185419.7,3.21,86.61,True,1.0,Projected via TFLOPS ratio (0.75 sub-linear scaling). Source: NVIDIA T4 datasheet (2022)
+VGG16 QISA,IBM Eagle (127 qubits),3,61736.1,140470.59,86.61,True,4.0,Speedup from quantum tunnelling (barrier-free). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).
+VGG16 QISA,Google Sycamore (53 qubits),3,61736.1,140470.59,86.61,True,4.0,Speedup from quantum tunnelling (barrier-free). Energy dominated by cryogenic cooling (25 kW). Near-term NISQ device assumed (Preskill 2018).

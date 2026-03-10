@@ -1,0 +1,2 @@
+experiment_name,timestamp,duration_seconds,num_samples,avg_cpu_percent,peak_cpu_percent,avg_memory_mb,peak_memory_mb,cpu_energy_joules,avg_gpu_power_w,peak_gpu_power_w,avg_gpu_temp_c,peak_gpu_temp_c,avg_gpu_memory_mb,peak_gpu_memory_mb,gpu_energy_joules,total_energy_joules,total_energy_kwh,emissions_gco2,emissions_kg,carbon_intensity_gco2_per_kwh
+cifar10_baseline,20260226_191406,5.0631,5,46.72,63.6,9768.82,9784.6,93.9939,20.32,22.15,49.0,49,1754.97,1755.05,81.8823,175.8762,4.885e-05,0.0101,1.01e-05,207.0

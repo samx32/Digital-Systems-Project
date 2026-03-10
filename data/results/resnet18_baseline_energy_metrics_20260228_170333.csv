@@ -1,0 +1,2 @@
+experiment_name,timestamp,duration_seconds,num_samples,avg_cpu_percent,peak_cpu_percent,avg_memory_mb,peak_memory_mb,cpu_energy_joules,avg_gpu_power_w,peak_gpu_power_w,avg_gpu_temp_c,peak_gpu_temp_c,avg_gpu_memory_mb,peak_gpu_memory_mb,gpu_energy_joules,total_energy_joules,total_energy_kwh,emissions_gco2,emissions_kg,carbon_intensity_gco2_per_kwh
+resnet18_baseline,20260228_170333,381.765,376,17.7,49.2,13146.47,13995.06,3039.7462,77.23,122.1,63.87,72,3035.75,3142.59,29347.8758,32387.622,0.00899656,1.8623,0.0018623,207.0

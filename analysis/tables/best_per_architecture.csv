@@ -1,0 +1,10 @@
+Architecture,Metric,Model,Technique,Value
+Custom CNN,Highest Accuracy,Pruned 40% + Stat Quant,Prune 40% + SQ,87.12%
+Custom CNN,Lowest Energy,Struct Pruned 60%,Struct Prune 60%,558.3 J
+Custom CNN,Highest Throughput,Pruned 20%,Prune 20%,83399 img/s
+ResNet-18,Highest Accuracy,RN18 Pruned 40%,Prune 40%,94.28%
+ResNet-18,Lowest Energy,RN18 Baseline,Baseline,2453.0 J
+ResNet-18,Highest Throughput,RN18 Pruned 40%,Prune 40%,38406 img/s
+VGG-16,Highest Accuracy,VGG16 Pruned 40%,Prune 40%,88.14%
+VGG-16,Lowest Energy,VGG16 Pruned 40%,Prune 40%,1208.5 J
+VGG-16,Highest Throughput,VGG16 Pruned 40%,Prune 40%,62130 img/s

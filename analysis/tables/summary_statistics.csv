@@ -1,0 +1,4 @@
+Architecture,# Models,Acc Mean,Acc Std,Acc Min,Acc Max,Energy Mean (J),Energy Min (J),Energy Max (J),Throughput Mean,Size (MB)
+Custom CNN,18,85.56,2.14,78.30,87.12,1116.1,558.3,2373.3,47903,5.14
+ResNet-18,7,94.13,0.09,93.97,94.28,4325.7,2453.0,14970.7,32485,42.7
+VGG-16,7,87.34,0.72,86.61,88.14,2264.2,1208.5,8374.7,52820,128.33
