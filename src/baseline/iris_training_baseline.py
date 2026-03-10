@@ -154,6 +154,7 @@ def main():
 
     # Final test accuracy
     final_test_loss, final_test_acc = evaluate(model, test_loader, criterion, device)
+    tracker.set_accuracy(final_test_acc)
     print('\nFinal Test Accuracy on Iris: {:.2f}%'.format(final_test_acc * 100))
     
     print("\nEnergy tracking complete!")

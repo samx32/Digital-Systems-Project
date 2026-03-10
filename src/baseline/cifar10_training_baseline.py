@@ -148,10 +148,8 @@ def main():
 
     # Final test accuracy
     final_test_loss, final_test_acc = evaluate(model, test_loader, criterion, device)
+    tracker.set_accuracy(final_test_acc)
     print(f'\nFinal Test Accuracy on CIFAR-10: {final_test_acc * 100:.2f}%')
-
-    print("\nEnergy tracking complete!")
-    print(f"Metrics: {tracker.metrics}")
 
     # Save model
     os.makedirs('data/models', exist_ok=True)
