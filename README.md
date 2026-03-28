@@ -38,16 +38,30 @@ Digital-Systems-Project/
 │   └── utils/
 │       └── energy_measurements.py       # CPU/GPU energy tracking via py3nvml + psutil
 ├── data/
-│   ├── models/                          # Saved model checkpoints (.pth)
+│   ├── models/                          # Saved model checkpoints (.pth) — stored via Git LFS
 │   └── results/                         # Energy metrics CSVs and benchmark output
 ├── analysis/
 │   ├── MODEL_EVALUATION.md              # Written analysis and findings
 │   ├── graphs/                          # Generated plots and animations
 │   ├── tables/                          # Result CSVs (accuracy, energy, size, etc.)
 │   └── projections/                     # Hardware projection graphs and tables
-├── TEST_PLAN.md                         # Test plan
 └── requirements.txt
 ```
+
+---
+
+## Pre-trained Models (Git LFS)
+
+All 32 trained model checkpoints are stored in `data/models/` using **Git LFS**. This means markers can run the inference benchmark directly without retraining anything — training the full pipeline from scratch takes several hours.
+
+To pull the model files after cloning:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+> Git LFS must be installed on your system. Download from [git-lfs.com](https://git-lfs.com).
 
 ---
 
@@ -61,11 +75,29 @@ pip install -r requirements.txt
 
 > GPU support requires a CUDA-capable NVIDIA GPU. CPU-only runs are supported but significantly slower for training.
 
+The CIFAR-10 dataset downloads automatically via torchvision the first time any script runs — no manual download needed.
+
 ---
 
 ## Running the Experiments
 
-### Full pipeline (all 11 stages in order)
+### Quick start — just run the benchmark on existing models
+
+If you've pulled the LFS models, you can jump straight to benchmarking:
+
+```bash
+python -m src.evaluation.inference_benchmark
+```
+
+Then regenerate the analysis and graphs:
+
+```bash
+python -m src.evaluation.generate_analysis
+python -m src.evaluation.generate_graphs
+python -m src.evaluation.hardware_projections
+```
+
+### Full pipeline (all 11 stages in order — retrains everything from scratch)
 
 ```bash
 python -m src.main

@@ -1,18 +1,19 @@
-# Byte-compiled / cached files
+# Python cache
 __pycache__/
 *.py[cod]
 *$py.class
 
-# CIFAR-10 dataset
+# CIFAR-10 dataset (downloaded automatically by torchvision at runtime)
 data/cifar10/
 data/cifar-10-batches-py/
 cifar-10-python.tar.gz
 
-# temp
----PLANNING STUFF---/
-Digital Systems Project Pip DEMO.png
-
-
-
+# Virtual environment
 .venv/
-data/models/
+
+# Planning / scratch files (not part of the submission)
+---PLANNING STUFF---/
+
+# IDE / local tooling
+.claude/
+Digital Systems Project Pip DEMO.png
